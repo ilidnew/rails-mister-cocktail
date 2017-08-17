@@ -8,6 +8,9 @@ require 'open-uri'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Cocktail.destroy_all
+# Ingredient.destroy_all
+
 
 url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredients_serialized = open(url).read
@@ -23,3 +26,7 @@ end
 # first_hash_in_array = ingredients['drinks'][0]
 
 # puts first_hash_in_array["strIngredient1"]
+
+
+
+# Cocktail.create(cocktails)

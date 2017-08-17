@@ -2,10 +2,11 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cocktails = Cocktail.all
+    @cocktails = Cocktail.order(id: :desc)
   end
 
   def show
+    @cocktail = Cocktail.find(params[:id])
     @dose = Dose.new
   end
 
