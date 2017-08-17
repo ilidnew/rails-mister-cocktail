@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <h2>Recipe for <%= @cocktail.name %></h2>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @cocktail.name %>
+      </p>
+
+    </div>
+    <div class="col-xs-6">
+      <h2>Add a new dose</h2>
+      <%= render 'doses/dose_form', dose: @dose, cocktail: @cocktail %>
+    </div>
+    <h2>Ingredients:</h2>
+    <ul>
+      <% @cocktail.doses.each do |dose| %>
+      <li><%= dose.description %></li>
+      <%= dose.ingredient.name %>
+      <hr>
+      <% end %>
+    </ul>
+  </p>
+
+  <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+  <%= link_to 'Back', cocktails_path %>
+
+
+  </div>
+</div>
