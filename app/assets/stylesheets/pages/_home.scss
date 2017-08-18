@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+.card {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  width: 300px;
+  background-size: cover !important;
+  background-position: center;
+  position: relative;
+  justify-content: space-around;
+}
+
+.link {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  background-size: cover !important;
+  background-position: 50% calc(50% - 90px);
+  width: 100%;
+  height: 400px;
+  color: white;
+  justify-content: space-around;
+  background-repeat: no-repeat;
+}
+
+.banner-content {
+  text-align: center;
+}

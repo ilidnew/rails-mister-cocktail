@@ -1,15 +1,12 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,101,168,0.6),
-  rgba(0,36,61,0.6) 50%), url('<%= image_tag 'cocktail.jpg' %>')">
-  <div class="banner-content">
-    <h1>Le Wagon Berlin</h1>
-    <p>Learn to code with us in Berlin</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
-  </div>
+<div class="banner" style="background-image: url('<%= image_path'cocktail.jpg' %>')">
+<div class="banner-content">
+  <h1>Le Wagon Berlin</h1>
+  <p>Learn to code with us in Berlin</p>
 </div>
-
+</div>
+<!--
 <div class="container">
   <div class="row">
-
     <h1>Here are all the cocktails you can make</h1>
 
     <table>
@@ -25,7 +22,7 @@
         <tr>
           <td><%= cocktail.name %></td>
           <td><%= link_to 'See recipe', cocktail %></td>
-          <td><%= link_to 'Delete', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', cocktail %></td>
         </tr>
         <% end %>
       </tbody>
@@ -33,5 +30,34 @@
 
     <br>
 
+  </div>
+</div> -->
+
+
+
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card text-center">
+
+        <% if cocktail.photo? %>
+        <div class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path cocktail.photo.path, height: 300, width: 400, crop: :fill %>')">
+          <%= link_to cocktail.name, cocktail_path(cocktail), class: "link" %>
+        </div>
+        <% else %>
+        <div class="card" style="background-image: url('http://www.seriouseats.com/images/2014/11/20141104-cocktail-party-old-fashioneds-holiday-vicky-wasik-3.jpg')">
+        <div class="card-category"><%= cocktail.name %></div>
+                <div class="card-body">
+          <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+        </div>
+        <% end %>
+      </div>
+      <br>
+    </div>
+    <% end %>
   </div>
 </div>

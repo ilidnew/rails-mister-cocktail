@@ -1,5 +1,8 @@
 <h1>New Cocktail</h1>
 
 <%= render 'form', cocktail: @cocktail %>
+<% if @cocktail.photo? %>
+  <%= cl_image_tag @cocktail.photo.path, width: 200, height: 300, crop: :fill %>
+<% end %>
 
 <%= link_to 'Back', cocktails_path %>

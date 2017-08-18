@@ -7,14 +7,17 @@
         <strong>Name:</strong>
         <%= @cocktail.name %>
       </p>
+      <% if @cocktail.photo? %>
+      <%= cl_image_tag @cocktail.photo.path, width: 300, height: 300, crop: :fill %>
+      <% end %>
 
     </div>
     <div class="col-xs-6">
       <h2>Add a new dose</h2>
       <%= simple_form_for([@cocktail, @dose]) do |f| %>
-        <%= f.association :ingredient %>
-        <%= f.input :description, as: :string %>
-        <%= f.submit "Add ingredient", class: "btn btn-primary" %>
+      <%= f.association :ingredient %>
+      <%= f.input :description, as: :string %>
+      <%= f.submit "Add ingredient", class: "btn btn-primary" %>
       <% end %>
     </div>
     <h2>Ingredients:</h2>
